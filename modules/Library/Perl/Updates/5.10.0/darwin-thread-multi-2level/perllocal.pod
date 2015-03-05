@@ -1,0 +1,220 @@
+=head2 Tue Sep 13 17:55:44 2011: C<Module> L<Hypergeom|Hypergeom>
+
+=over 4
+
+=item *
+
+C<installed into: /Users/hani/Life/Projects/Applications/FIRE-1.1/SCRIPTS/../modules/lib/perl5/site_perl>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.01>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Thu Jan 19 18:57:12 2012: C<Module> L<Hypergeom|Hypergeom>
+
+=over 4
+
+=item *
+
+C<installed into: /Users/hani/Life/Projects/Applications/FIRE-1.1/SCRIPTS/../modules/lib/perl5/site_perl>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.01>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Thu Jan 19 18:59:06 2012: C<Module> L<Hypergeom|Hypergeom>
+
+=over 4
+
+=item *
+
+C<installed into: /Users/hani/Life/Projects/Applications/FIRE-1.1/SCRIPTS/../modules/lib/perl5/site_perl>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.01>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Tue Feb 28 13:00:20 2012: C<Module> L<Hypergeom|Hypergeom>
+
+=over 4
+
+=item *
+
+C<installed into: /Users/hani/Life/Projects/Applications/FIRE-1.1/SCRIPTS/../modules/lib/perl5/site_perl>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.01>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Tue Feb 28 13:00:50 2012: C<Module> L<Hypergeom|Hypergeom>
+
+=over 4
+
+=item *
+
+C<installed into: /Users/hani/Life/Projects/Applications/FIRE-1.1/SCRIPTS/../modules/lib/perl5/site_perl>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.01>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Tue Feb 28 13:01:14 2012: C<Module> L<Hypergeom|Hypergeom>
+
+=over 4
+
+=item *
+
+C<installed into: /Users/hani/Life/Projects/Applications/FIRE-1.1/SCRIPTS/../modules/lib/perl5/site_perl>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.01>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Tue Feb 28 13:03:07 2012: C<Module> L<Hypergeom|Hypergeom>
+
+=over 4
+
+=item *
+
+C<installed into: /Users/hani/Life/Projects/Applications/FIRE-1.1/SCRIPTS/../modules/lib/perl5/site_perl>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.01>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Tue Feb 28 13:05:29 2012: C<Module> L<Hypergeom|Hypergeom>
+
+=over 4
+
+=item *
+
+C<installed into: /Users/hani/Life/Projects/Applications/FIRE-1.1/SCRIPTS/../modules/lib/perl5/site_perl>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.01>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Tue Feb 28 13:07:27 2012: C<Module> L<Hypergeom|Hypergeom>
+
+=over 4
+
+=item *
+
+C<installed into: /Users/hani/Life/Projects/Applications/FIRE-1.1/SCRIPTS/../modules/lib/perl5/site_perl>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.01>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Tue Feb 28 13:10:34 2012: C<Module> L<Hypergeom|Hypergeom>
+
+=over 4
+
+=item *
+
+C<installed into: /Users/hani/Life/Projects/Applications/FIRE-1.1/SCRIPTS/../modules/lib/perl5/site_perl>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.01>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+

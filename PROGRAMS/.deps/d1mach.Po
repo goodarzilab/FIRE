@@ -1,0 +1,18 @@
+d1mach.o: d1mach.c /usr/include/math.h /usr/include/sys/cdefs.h \
+ /usr/include/sys/_symbol_aliasing.h \
+ /usr/include/sys/_posix_availability.h /usr/include/Availability.h \
+ /usr/include/AvailabilityInternal.h rcode.h
+
+/usr/include/math.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/sys/_symbol_aliasing.h:
+
+/usr/include/sys/_posix_availability.h:
+
+/usr/include/Availability.h:
+
+/usr/include/AvailabilityInternal.h:
+
+rcode.h:
