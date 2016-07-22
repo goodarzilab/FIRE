@@ -1,6 +1,6 @@
 # Package Information for pkg-config
 
-prefix=/Users/hani/Life/Projects/Applications/FIRE-1.1/PROGRAMS/pcre-7.4/../../modules
+prefix=/netapp/home/hani/FIRE/PROGRAMS/pcre-7.4/../../modules
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include

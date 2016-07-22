@@ -1,27 +1,25 @@
 # This Makefile is for the Hypergeom extension to perl.
 #
 # It was generated automatically by MakeMaker version
-# 6.64 (Revision: 66400) from the contents of
+# 6.55_02 (Revision: 65502) from the contents of
 # Makefile.PL. Don't edit this file, edit Makefile.PL instead.
 #
 #       ANY CHANGES MADE HERE WILL BE LOST!
 #
-#   MakeMaker ARGV: (q[PREFIX=/Users/hani/Life/Projects/Applications/FIRE-1.1/SCRIPTS/../modules])
+#   MakeMaker ARGV: (q[PREFIX=/netapp/home/hani/FIRE/SCRIPTS/../modules])
 #
 
 #   MakeMaker Parameters:
 
 #     ABSTRACT_FROM => q[Hypergeom.pm]
-#     AUTHOR => [q[Olivier Elemento <olly@localdoma>]]
+#     AUTHOR => q[Olivier Elemento <olly@localdoma>]
 #     BUILD_REQUIRES => {  }
-#     CONFIGURE_REQUIRES => {  }
 #     DEFINE => q[]
 #     INC => q[-I.]
 #     LIBS => [q[]]
 #     MYEXTLIB => q[hypergeom/hypergeom$(LIB_EXT)]
 #     NAME => q[Hypergeom]
 #     PREREQ_PM => {  }
-#     TEST_REQUIRES => {  }
 #     VERSION_FROM => q[Hypergeom.pm]
 
 # --- MakeMaker post_initialize section:
@@ -29,30 +27,30 @@
 
 # --- MakeMaker const_config section:
 
-# These definitions are from config.sh (via /opt/local/lib/perl5/5.12.4/darwin-thread-multi-2level/Config.pm).
+# These definitions are from config.sh (via /usr/lib64/perl5/Config.pm).
 # They may have been overridden via Makefile.PL or on the command line.
 AR = ar
-CC = /usr/bin/clang
-CCCDLFLAGS =  
-CCDLFLAGS =  
-DLEXT = bundle
+CC = gcc
+CCCDLFLAGS = -fPIC
+CCDLFLAGS = -Wl,-E -Wl,-rpath,/usr/lib64/perl5/CORE
+DLEXT = so
 DLSRC = dl_dlopen.xs
 EXE_EXT = 
 FULL_AR = /usr/bin/ar
-LD = env MACOSX_DEPLOYMENT_TARGET=10.3 /usr/bin/clang
-LDDLFLAGS = -L/opt/local/lib  -bundle -undefined dynamic_lookup -fstack-protector
-LDFLAGS = -L/opt/local/lib  -fstack-protector
+LD = gcc
+LDDLFLAGS = -shared -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic
+LDFLAGS =  -fstack-protector
 LIBC = 
 LIB_EXT = .a
 OBJ_EXT = .o
-OSNAME = darwin
-OSVERS = 11.3.0
-RANLIB = ranlib
-SITELIBEXP = /opt/local/lib/perl5/site_perl/5.12.4
-SITEARCHEXP = /opt/local/lib/perl5/site_perl/5.12.4/darwin-thread-multi-2level
-SO = dylib
-VENDORARCHEXP = /opt/local/lib/perl5/vendor_perl/5.12.4/darwin-thread-multi-2level
-VENDORLIBEXP = /opt/local/lib/perl5/vendor_perl/5.12.4
+OSNAME = linux
+OSVERS = 2.6.32-220.el6.x86_64
+RANLIB = :
+SITELIBEXP = /usr/local/share/perl5
+SITEARCHEXP = /usr/local/lib64/perl5
+SO = so
+VENDORARCHEXP = /usr/lib64/perl5/vendor_perl
+VENDORLIBEXP = /usr/share/perl5/vendor_perl
 
 
 # --- MakeMaker constants section:
@@ -74,61 +72,61 @@ INST_BIN = blib/bin
 INST_LIB = blib/lib
 INST_MAN1DIR = blib/man1
 INST_MAN3DIR = blib/man3
-MAN1EXT = 1pm
+MAN1EXT = 1
 MAN3EXT = 3pm
 INSTALLDIRS = site
 DESTDIR = 
-PREFIX = /Users/hani/Life/Projects/Applications/FIRE-1.1/SCRIPTS/../modules
+PREFIX = /netapp/home/hani/FIRE/SCRIPTS/../modules
 PERLPREFIX = $(PREFIX)
 SITEPREFIX = $(PREFIX)
 VENDORPREFIX = $(PREFIX)
-INSTALLPRIVLIB = $(PERLPREFIX)/lib/perl5/5.12.4
+INSTALLPRIVLIB = $(PERLPREFIX)/share/perl5
 DESTINSTALLPRIVLIB = $(DESTDIR)$(INSTALLPRIVLIB)
-INSTALLSITELIB = $(SITEPREFIX)/lib/perl5/site_perl/5.12.4
+INSTALLSITELIB = $(SITEPREFIX)/share/perl5
 DESTINSTALLSITELIB = $(DESTDIR)$(INSTALLSITELIB)
-INSTALLVENDORLIB = $(VENDORPREFIX)/lib/perl5/vendor_perl/5.12.4
+INSTALLVENDORLIB = $(VENDORPREFIX)/share/perl5/vendor_perl
 DESTINSTALLVENDORLIB = $(DESTDIR)$(INSTALLVENDORLIB)
-INSTALLARCHLIB = $(PERLPREFIX)/lib/perl5/5.12.4/darwin-thread-multi-2level
+INSTALLARCHLIB = $(PERLPREFIX)/lib64/perl5
 DESTINSTALLARCHLIB = $(DESTDIR)$(INSTALLARCHLIB)
-INSTALLSITEARCH = $(SITEPREFIX)/lib/perl5/site_perl/5.12.4/darwin-thread-multi-2level
+INSTALLSITEARCH = $(SITEPREFIX)/lib64/perl5
 DESTINSTALLSITEARCH = $(DESTDIR)$(INSTALLSITEARCH)
-INSTALLVENDORARCH = $(VENDORPREFIX)/lib/perl5/vendor_perl/5.12.4/darwin-thread-multi-2level
+INSTALLVENDORARCH = $(VENDORPREFIX)/lib64/perl5/vendor_perl
 DESTINSTALLVENDORARCH = $(DESTDIR)$(INSTALLVENDORARCH)
 INSTALLBIN = $(PERLPREFIX)/bin
 DESTINSTALLBIN = $(DESTDIR)$(INSTALLBIN)
-INSTALLSITEBIN = $(SITEPREFIX)/libexec/perl5.12/sitebin
+INSTALLSITEBIN = $(SITEPREFIX)/bin
 DESTINSTALLSITEBIN = $(DESTDIR)$(INSTALLSITEBIN)
-INSTALLVENDORBIN = $(VENDORPREFIX)/libexec/perl5.12
+INSTALLVENDORBIN = $(VENDORPREFIX)/bin
 DESTINSTALLVENDORBIN = $(DESTDIR)$(INSTALLVENDORBIN)
 INSTALLSCRIPT = $(PERLPREFIX)/bin
 DESTINSTALLSCRIPT = $(DESTDIR)$(INSTALLSCRIPT)
-INSTALLSITESCRIPT = $(SITEPREFIX)/libexec/perl5.12/sitebin
+INSTALLSITESCRIPT = $(SITEPREFIX)/bin
 DESTINSTALLSITESCRIPT = $(DESTDIR)$(INSTALLSITESCRIPT)
-INSTALLVENDORSCRIPT = $(VENDORPREFIX)/libexec/perl5.12
+INSTALLVENDORSCRIPT = $(VENDORPREFIX)/bin
 DESTINSTALLVENDORSCRIPT = $(DESTDIR)$(INSTALLVENDORSCRIPT)
-INSTALLMAN1DIR = $(PERLPREFIX)/share/man/man1p
+INSTALLMAN1DIR = $(PERLPREFIX)/share/man/man1
 DESTINSTALLMAN1DIR = $(DESTDIR)$(INSTALLMAN1DIR)
-INSTALLSITEMAN1DIR = $(SITEPREFIX)/share/perl5.12/siteman/man1
+INSTALLSITEMAN1DIR = $(SITEPREFIX)/share/man/man1
 DESTINSTALLSITEMAN1DIR = $(DESTDIR)$(INSTALLSITEMAN1DIR)
-INSTALLVENDORMAN1DIR = $(VENDORPREFIX)/share/perl5.12/man/man1
+INSTALLVENDORMAN1DIR = $(VENDORPREFIX)/share/man/man1
 DESTINSTALLVENDORMAN1DIR = $(DESTDIR)$(INSTALLVENDORMAN1DIR)
-INSTALLMAN3DIR = $(PERLPREFIX)/share/man/man3p
+INSTALLMAN3DIR = $(PERLPREFIX)/share/man/man3
 DESTINSTALLMAN3DIR = $(DESTDIR)$(INSTALLMAN3DIR)
-INSTALLSITEMAN3DIR = $(SITEPREFIX)/share/perl5.12/siteman/man3
+INSTALLSITEMAN3DIR = $(SITEPREFIX)/share/man/man3
 DESTINSTALLSITEMAN3DIR = $(DESTDIR)$(INSTALLSITEMAN3DIR)
-INSTALLVENDORMAN3DIR = $(VENDORPREFIX)/share/perl5.12/man/man3
+INSTALLVENDORMAN3DIR = $(VENDORPREFIX)/share/man/man3
 DESTINSTALLVENDORMAN3DIR = $(DESTDIR)$(INSTALLVENDORMAN3DIR)
-PERL_LIB = /opt/local/lib/perl5/5.12.4
-PERL_ARCHLIB = /opt/local/lib/perl5/5.12.4/darwin-thread-multi-2level
+PERL_LIB = /usr/share/perl5
+PERL_ARCHLIB = /usr/lib64/perl5
 LIBPERL_A = libperl.a
 MYEXTLIB = hypergeom/hypergeom$(LIB_EXT)
 FIRST_MAKEFILE = Makefile
 MAKEFILE_OLD = Makefile.old
 MAKE_APERL_FILE = Makefile.aperl
 PERLMAINCC = $(CC)
-PERL_INC = /opt/local/lib/perl5/5.12.4/darwin-thread-multi-2level/CORE
-PERL = /opt/local/bin/perl
-FULLPERL = /opt/local/bin/perl
+PERL_INC = /usr/lib64/perl5/CORE
+PERL = /usr/bin/perl
+FULLPERL = /usr/bin/perl
 ABSPERL = $(PERL)
 PERLRUN = $(PERL)
 FULLPERLRUN = $(FULLPERL)
@@ -141,9 +139,9 @@ PERM_DIR = 755
 PERM_RW = 644
 PERM_RWX = 755
 
-MAKEMAKER   = /opt/local/lib/perl5/5.12.4/ExtUtils/MakeMaker.pm
-MM_VERSION  = 6.64
-MM_REVISION = 66400
+MAKEMAKER   = /usr/share/perl5/ExtUtils/MakeMaker.pm
+MM_VERSION  = 6.55_02
+MM_REVISION = 65502
 
 # FULLEXT = Pathname for extension directory (eg Foo/Bar/Oracle).
 # BASEEXT = Basename part of FULLEXT. May be just equal FULLEXT. (eg Oracle)
@@ -191,54 +189,33 @@ PERL_ARCHIVE_AFTER =
 
 
 TO_INST_PM = Hypergeom.pm \
-	Hypergeom/MYMETA.json \
-	Hypergeom/MYMETA.yml \
-	Hypergeom/Makefile \
-	Hypergeom/Makefile.PL \
-	Hypergeom/Makefile.old \
-	Hypergeom/hypergeom.c \
-	Hypergeom/hypergeom.h \
 	test.pm
 
-PM_TO_BLIB = Hypergeom/hypergeom.c \
-	$(INST_LIB)/Hypergeom/hypergeom.c \
-	Hypergeom/Makefile \
-	$(INST_LIB)/Hypergeom/Makefile \
-	test.pm \
+PM_TO_BLIB = test.pm \
 	$(INST_LIB)/test.pm \
-	Hypergeom/Makefile.old \
-	$(INST_LIB)/Hypergeom/Makefile.old \
 	Hypergeom.pm \
-	$(INST_LIB)/Hypergeom.pm \
-	Hypergeom/MYMETA.yml \
-	$(INST_LIB)/Hypergeom/MYMETA.yml \
-	Hypergeom/hypergeom.h \
-	$(INST_LIB)/Hypergeom/hypergeom.h \
-	Hypergeom/Makefile.PL \
-	$(INST_LIB)/Hypergeom/Makefile.PL \
-	Hypergeom/MYMETA.json \
-	$(INST_LIB)/Hypergeom/MYMETA.json
+	$(INST_LIB)/Hypergeom.pm
 
 
 # --- MakeMaker platform_constants section:
-MM_Unix_VERSION = 6.64
+MM_Unix_VERSION = 6.55_02
 PERL_MALLOC_DEF = -DPERL_EXTMALLOC_DEF -Dmalloc=Perl_malloc -Dfree=Perl_mfree -Drealloc=Perl_realloc -Dcalloc=Perl_calloc
 
 
 # --- MakeMaker tool_autosplit section:
 # Usage: $(AUTOSPLITFILE) FileToSplit AutoDirToSplitInto
-AUTOSPLITFILE = $(ABSPERLRUN)  -e 'use AutoSplit;  autosplit($$$$ARGV[0], $$$$ARGV[1], 0, 1, 1)' --
+AUTOSPLITFILE = $(ABSPERLRUN)  -e 'use AutoSplit;  autosplit($$ARGV[0], $$ARGV[1], 0, 1, 1)' --
 
 
 
 # --- MakeMaker tool_xsubpp section:
 
-XSUBPPDIR = /opt/local/lib/perl5/5.12.4/ExtUtils
+XSUBPPDIR = /usr/share/perl5/ExtUtils
 XSUBPP = $(XSUBPPDIR)$(DFSEP)xsubpp
 XSUBPPRUN = $(PERLRUN) $(XSUBPP)
 XSPROTOARG = 
-XSUBPPDEPS = /opt/local/lib/perl5/5.12.4/ExtUtils/typemap $(XSUBPP)
-XSUBPPARGS = -typemap /opt/local/lib/perl5/5.12.4/ExtUtils/typemap
+XSUBPPDEPS = /usr/share/perl5/ExtUtils/typemap $(XSUBPP)
+XSUBPPARGS = -typemap /usr/share/perl5/ExtUtils/typemap
 XSUBPP_EXTRA_ARGS = 
 
 
@@ -279,7 +256,7 @@ makemakerdflt : all
 
 
 # --- MakeMaker dist section:
-TAR = COPY_EXTENDED_ATTRIBUTES_DISABLE=1 COPYFILE_DISABLE=1 tar
+TAR = tar
 TARFLAGS = cvf
 ZIP = zip
 ZIPFLAGS = -r
@@ -305,8 +282,8 @@ DISTVNAME = Hypergeom-0.01
 
 # --- MakeMaker cflags section:
 
-CCFLAGS = -pipe -O2 -fno-common -DPERL_DARWIN -I/opt/local/include -no-cpp-precomp -fno-strict-aliasing -fstack-protector -I/opt/local/include
-OPTIMIZE = -O3
+CCFLAGS = -D_REENTRANT -D_GNU_SOURCE -fno-strict-aliasing -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64
+OPTIMIZE = -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic
 PERLTYPE = 
 MPOLLUTE = 
 
@@ -347,7 +324,7 @@ PASTHRU = LIBPERL_A="$(LIBPERL_A)"\
 # --- MakeMaker c_o section:
 
 .c.i:
-	/usr/bin/clang -E -c $(PASTHRU_INC) $(INC) \
+	gcc -E -c $(PASTHRU_INC) $(INC) \
 	$(CCFLAGS) $(OPTIMIZE) \
 	$(PERLTYPE) $(MPOLLUTE) $(DEFINE_VERSION) \
 	$(XS_DEFINE_VERSION) $(CCCDLFLAGS) "-I$(PERL_INC)" $(PASTHRU_DEFINE) $(DEFINE) $*.c > $*.i
@@ -569,8 +546,7 @@ clean :: clean_subdirs
 	  *$(LIB_EXT) core \
 	  core.[0-9] $(INST_ARCHAUTODIR)/extralibs.all \
 	  core.[0-9][0-9] $(BASEEXT).bso \
-	  pm_to_blib.ts MYMETA.json \
-	  core.[0-9][0-9][0-9][0-9] MYMETA.yml \
+	  pm_to_blib.ts core.[0-9][0-9][0-9][0-9] \
 	  $(BASEEXT).x $(BOOTSTRAP) \
 	  perl$(EXE_EXT) tmon.out \
 	  *$(OBJ_EXT) pm_to_blib \
@@ -606,69 +582,28 @@ realclean purge ::  clean realclean_subdirs
 # --- MakeMaker metafile section:
 metafile : create_distdir
 	$(NOECHO) $(ECHO) Generating META.yml
-	$(NOECHO) $(ECHO) '---' > META_new.yml
-	$(NOECHO) $(ECHO) 'abstract: '\''Perl extension for blah blah blah'\''' >> META_new.yml
+	$(NOECHO) $(ECHO) '--- #YAML:1.0' > META_new.yml
+	$(NOECHO) $(ECHO) 'name:               Hypergeom' >> META_new.yml
+	$(NOECHO) $(ECHO) 'version:            0.01' >> META_new.yml
+	$(NOECHO) $(ECHO) 'abstract:           Perl extension for blah blah blah' >> META_new.yml
 	$(NOECHO) $(ECHO) 'author:' >> META_new.yml
-	$(NOECHO) $(ECHO) '  - '\''Olivier Elemento <olly@localdoma>'\''' >> META_new.yml
-	$(NOECHO) $(ECHO) 'build_requires:' >> META_new.yml
-	$(NOECHO) $(ECHO) '  ExtUtils::MakeMaker: 0' >> META_new.yml
+	$(NOECHO) $(ECHO) '    - Olivier Elemento <olly@localdoma>' >> META_new.yml
+	$(NOECHO) $(ECHO) 'license:            unknown' >> META_new.yml
+	$(NOECHO) $(ECHO) 'distribution_type:  module' >> META_new.yml
 	$(NOECHO) $(ECHO) 'configure_requires:' >> META_new.yml
-	$(NOECHO) $(ECHO) '  ExtUtils::MakeMaker: 0' >> META_new.yml
-	$(NOECHO) $(ECHO) 'dynamic_config: 1' >> META_new.yml
-	$(NOECHO) $(ECHO) 'generated_by: '\''ExtUtils::MakeMaker version 6.64, CPAN::Meta::Converter version 2.112621'\''' >> META_new.yml
-	$(NOECHO) $(ECHO) 'license: unknown' >> META_new.yml
-	$(NOECHO) $(ECHO) 'meta-spec:' >> META_new.yml
-	$(NOECHO) $(ECHO) '  url: http://module-build.sourceforge.net/META-spec-v1.4.html' >> META_new.yml
-	$(NOECHO) $(ECHO) '  version: 1.4' >> META_new.yml
-	$(NOECHO) $(ECHO) 'name: Hypergeom' >> META_new.yml
+	$(NOECHO) $(ECHO) '    ExtUtils::MakeMaker:  0' >> META_new.yml
+	$(NOECHO) $(ECHO) 'build_requires:' >> META_new.yml
+	$(NOECHO) $(ECHO) '    ExtUtils::MakeMaker:  0' >> META_new.yml
+	$(NOECHO) $(ECHO) 'requires:  {}' >> META_new.yml
 	$(NOECHO) $(ECHO) 'no_index:' >> META_new.yml
-	$(NOECHO) $(ECHO) '  directory:' >> META_new.yml
-	$(NOECHO) $(ECHO) '    - t' >> META_new.yml
-	$(NOECHO) $(ECHO) '    - inc' >> META_new.yml
-	$(NOECHO) $(ECHO) 'requires: {}' >> META_new.yml
-	$(NOECHO) $(ECHO) 'version: 0.01' >> META_new.yml
+	$(NOECHO) $(ECHO) '    directory:' >> META_new.yml
+	$(NOECHO) $(ECHO) '        - t' >> META_new.yml
+	$(NOECHO) $(ECHO) '        - inc' >> META_new.yml
+	$(NOECHO) $(ECHO) 'generated_by:       ExtUtils::MakeMaker version 6.55_02' >> META_new.yml
+	$(NOECHO) $(ECHO) 'meta-spec:' >> META_new.yml
+	$(NOECHO) $(ECHO) '    url:      http://module-build.sourceforge.net/META-spec-v1.4.html' >> META_new.yml
+	$(NOECHO) $(ECHO) '    version:  1.4' >> META_new.yml
 	-$(NOECHO) $(MV) META_new.yml $(DISTVNAME)/META.yml
-	$(NOECHO) $(ECHO) Generating META.json
-	$(NOECHO) $(ECHO) '{' > META_new.json
-	$(NOECHO) $(ECHO) '   "abstract" : "Perl extension for blah blah blah",' >> META_new.json
-	$(NOECHO) $(ECHO) '   "author" : [' >> META_new.json
-	$(NOECHO) $(ECHO) '      "Olivier Elemento <olly@localdoma>"' >> META_new.json
-	$(NOECHO) $(ECHO) '   ],' >> META_new.json
-	$(NOECHO) $(ECHO) '   "dynamic_config" : 1,' >> META_new.json
-	$(NOECHO) $(ECHO) '   "generated_by" : "ExtUtils::MakeMaker version 6.64, CPAN::Meta::Converter version 2.112621",' >> META_new.json
-	$(NOECHO) $(ECHO) '   "license" : [' >> META_new.json
-	$(NOECHO) $(ECHO) '      "unknown"' >> META_new.json
-	$(NOECHO) $(ECHO) '   ],' >> META_new.json
-	$(NOECHO) $(ECHO) '   "meta-spec" : {' >> META_new.json
-	$(NOECHO) $(ECHO) '      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",' >> META_new.json
-	$(NOECHO) $(ECHO) '      "version" : "2"' >> META_new.json
-	$(NOECHO) $(ECHO) '   },' >> META_new.json
-	$(NOECHO) $(ECHO) '   "name" : "Hypergeom",' >> META_new.json
-	$(NOECHO) $(ECHO) '   "no_index" : {' >> META_new.json
-	$(NOECHO) $(ECHO) '      "directory" : [' >> META_new.json
-	$(NOECHO) $(ECHO) '         "t",' >> META_new.json
-	$(NOECHO) $(ECHO) '         "inc"' >> META_new.json
-	$(NOECHO) $(ECHO) '      ]' >> META_new.json
-	$(NOECHO) $(ECHO) '   },' >> META_new.json
-	$(NOECHO) $(ECHO) '   "prereqs" : {' >> META_new.json
-	$(NOECHO) $(ECHO) '      "build" : {' >> META_new.json
-	$(NOECHO) $(ECHO) '         "requires" : {' >> META_new.json
-	$(NOECHO) $(ECHO) '            "ExtUtils::MakeMaker" : 0' >> META_new.json
-	$(NOECHO) $(ECHO) '         }' >> META_new.json
-	$(NOECHO) $(ECHO) '      },' >> META_new.json
-	$(NOECHO) $(ECHO) '      "configure" : {' >> META_new.json
-	$(NOECHO) $(ECHO) '         "requires" : {' >> META_new.json
-	$(NOECHO) $(ECHO) '            "ExtUtils::MakeMaker" : 0' >> META_new.json
-	$(NOECHO) $(ECHO) '         }' >> META_new.json
-	$(NOECHO) $(ECHO) '      },' >> META_new.json
-	$(NOECHO) $(ECHO) '      "runtime" : {' >> META_new.json
-	$(NOECHO) $(ECHO) '         "requires" : {}' >> META_new.json
-	$(NOECHO) $(ECHO) '      }' >> META_new.json
-	$(NOECHO) $(ECHO) '   },' >> META_new.json
-	$(NOECHO) $(ECHO) '   "release_status" : "stable",' >> META_new.json
-	$(NOECHO) $(ECHO) '   "version" : "0.01"' >> META_new.json
-	$(NOECHO) $(ECHO) '}' >> META_new.json
-	-$(NOECHO) $(MV) META_new.json $(DISTVNAME)/META.json
 
 
 # --- MakeMaker signature section:
@@ -743,7 +678,7 @@ distdir : create_distdir distmeta
 
 # --- MakeMaker dist_test section:
 disttest : distdir
-	cd $(DISTVNAME) && $(ABSPERLRUN) Makefile.PL "PREFIX=/Users/hani/Life/Projects/Applications/FIRE-1.1/SCRIPTS/../modules"
+	cd $(DISTVNAME) && $(ABSPERLRUN) Makefile.PL "PREFIX=/netapp/home/hani/FIRE/SCRIPTS/../modules"
 	cd $(DISTVNAME) && $(MAKE) $(PASTHRU)
 	cd $(DISTVNAME) && $(MAKE) test $(PASTHRU)
 
@@ -760,19 +695,15 @@ ci :
 
 # --- MakeMaker distmeta section:
 distmeta : create_distdir metafile
-	$(NOECHO) cd $(DISTVNAME) && $(ABSPERLRUN) -MExtUtils::Manifest=maniadd -e 'exit unless -e q{META.yml};' \
-	  -e 'eval { maniadd({q{META.yml} => q{Module YAML meta-data (added by MakeMaker)}}) }' \
-	  -e '    or print "Could not add META.yml to MANIFEST: $$$${'\''@'\''}\n"' --
-	$(NOECHO) cd $(DISTVNAME) && $(ABSPERLRUN) -MExtUtils::Manifest=maniadd -e 'exit unless -f q{META.json};' \
-	  -e 'eval { maniadd({q{META.json} => q{Module JSON meta-data (added by MakeMaker)}}) }' \
-	  -e '    or print "Could not add META.json to MANIFEST: $$$${'\''@'\''}\n"' --
+	$(NOECHO) cd $(DISTVNAME) && $(ABSPERLRUN) -MExtUtils::Manifest=maniadd -e 'eval { maniadd({q{META.yml} => q{Module meta-data (added by MakeMaker)}}) } ' \
+	  -e '    or print "Could not add META.yml to MANIFEST: $${'\''@'\''}\n"' --
 
 
 
 # --- MakeMaker distsignature section:
 distsignature : create_distdir
 	$(NOECHO) cd $(DISTVNAME) && $(ABSPERLRUN) -MExtUtils::Manifest=maniadd -e 'eval { maniadd({q{SIGNATURE} => q{Public-key signature (added by MakeMaker)}}) } ' \
-	  -e '    or print "Could not add SIGNATURE to MANIFEST: $$$${'\''@'\''}\n"' --
+	  -e '    or print "Could not add SIGNATURE to MANIFEST: $${'\''@'\''}\n"' --
 	$(NOECHO) cd $(DISTVNAME) && $(TOUCH) SIGNATURE
 	cd $(DISTVNAME) && cpansign -s
 
@@ -902,6 +833,7 @@ PERL_HDRS = \
 	$(PERL_INC)/INTERN.h		\
 	$(PERL_INC)/XSUB.h		\
 	$(PERL_INC)/av.h		\
+	$(PERL_INC)/cc_runtime.h	\
 	$(PERL_INC)/config.h		\
 	$(PERL_INC)/cop.h		\
 	$(PERL_INC)/cv.h		\
@@ -956,7 +888,7 @@ $(FIRST_MAKEFILE) : Makefile.PL $(CONFIGDEP)
 	-$(NOECHO) $(RM_F) $(MAKEFILE_OLD)
 	-$(NOECHO) $(MV)   $(FIRST_MAKEFILE) $(MAKEFILE_OLD)
 	- $(MAKE) $(USEMAKEFILE) $(MAKEFILE_OLD) clean $(DEV_NULL)
-	$(PERLRUN) Makefile.PL "PREFIX=/Users/hani/Life/Projects/Applications/FIRE-1.1/SCRIPTS/../modules"
+	$(PERLRUN) Makefile.PL "PREFIX=/netapp/home/hani/FIRE/SCRIPTS/../modules"
 	$(NOECHO) $(ECHO) "==> Your Makefile has been rebuilt. <=="
 	$(NOECHO) $(ECHO) "==> Please rerun the $(MAKE) command.  <=="
 	$(FALSE)
@@ -967,7 +899,7 @@ $(FIRST_MAKEFILE) : Makefile.PL $(CONFIGDEP)
 
 # --- MakeMaker makeaperl section ---
 MAP_TARGET    = perl
-FULLPERL      = /opt/local/bin/perl
+FULLPERL      = /usr/bin/perl
 
 $(MAP_TARGET) :: static $(MAKE_APERL_FILE)
 	$(MAKE) $(USEMAKEFILE) $(MAKE_APERL_FILE) $@
@@ -978,7 +910,7 @@ $(MAKE_APERL_FILE) : $(FIRST_MAKEFILE) pm_to_blib
 		Makefile.PL DIR=hypergeom \
 		MAKEFILE=$(MAKE_APERL_FILE) LINKTYPE=static \
 		MAKEAPERL=1 NORECURS=1 CCCDLFLAGS= \
-		PREFIX=/Users/hani/Life/Projects/Applications/FIRE-1.1/SCRIPTS/../modules
+		PREFIX=/netapp/home/hani/FIRE/SCRIPTS/../modules
 
 
 # --- MakeMaker test section:
@@ -1019,11 +951,11 @@ testdb_static :: pure_all $(MAP_TARGET)
 # --- MakeMaker ppd section:
 # Creates a PPD (Perl Package Description) for a binary distribution.
 ppd :
-	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="$(VERSION)">' > $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="0.01">' > $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <ABSTRACT>Perl extension for blah blah blah</ABSTRACT>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <AUTHOR>Olivier Elemento &lt;olly@localdoma&gt;</AUTHOR>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="darwin-thread-multi-2level-5.12" />' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="x86_64-linux-thread-multi-5.10" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <CODEBASE HREF="" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    </IMPLEMENTATION>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '</SOFTPKG>' >> $(DISTNAME).ppd
@@ -1033,15 +965,8 @@ ppd :
 
 pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	$(NOECHO) $(ABSPERLRUN) -MExtUtils::Install -e 'pm_to_blib({@ARGV}, '\''$(INST_LIB)/auto'\'', q[$(PM_FILTER)], '\''$(PERM_DIR)'\'')' -- \
-	  Hypergeom/hypergeom.c $(INST_LIB)/Hypergeom/hypergeom.c \
-	  Hypergeom/Makefile $(INST_LIB)/Hypergeom/Makefile \
 	  test.pm $(INST_LIB)/test.pm \
-	  Hypergeom/Makefile.old $(INST_LIB)/Hypergeom/Makefile.old \
-	  Hypergeom.pm $(INST_LIB)/Hypergeom.pm \
-	  Hypergeom/MYMETA.yml $(INST_LIB)/Hypergeom/MYMETA.yml \
-	  Hypergeom/hypergeom.h $(INST_LIB)/Hypergeom/hypergeom.h \
-	  Hypergeom/Makefile.PL $(INST_LIB)/Hypergeom/Makefile.PL \
-	  Hypergeom/MYMETA.json $(INST_LIB)/Hypergeom/MYMETA.json 
+	  Hypergeom.pm $(INST_LIB)/Hypergeom.pm 
 	$(NOECHO) $(TOUCH) pm_to_blib
 
 
@@ -1054,24 +979,23 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 # ABSTRACT => q[Perl extension for blah blah blah]
 # ABSTRACT_FROM => q[Hypergeom.pm]
 # AR => q[ar]
-# ARGS => { NAME=>q[Hypergeom], AUTHOR=>[q[Olivier Elemento <olly@localdoma>]], LIBS=>[q[]], INC=>q[-I.], DEFINE=>q[], PREFIX=>q[/Users/hani/Life/Projects/Applications/FIRE-1.1/SCRIPTS/../modules], MYEXTLIB=>q[hypergeom/hypergeom$(LIB_EXT)], VERSION_FROM=>q[Hypergeom.pm], ABSTRACT_FROM=>q[Hypergeom.pm], PREREQ_PM=>{  } }
+# ARGS => { NAME=>q[Hypergeom], AUTHOR=>q[Olivier Elemento <olly@localdoma>], LIBS=>[q[]], INC=>q[-I.], DEFINE=>q[], PREFIX=>q[/netapp/home/hani/FIRE/SCRIPTS/../modules], MYEXTLIB=>q[hypergeom/hypergeom$(LIB_EXT)], VERSION_FROM=>q[Hypergeom.pm], ABSTRACT_FROM=>q[Hypergeom.pm], PREREQ_PM=>{  } }
 # AR_STATIC_ARGS => q[cr]
-# AUTHOR => [q[Olivier Elemento <olly@localdoma>]]
+# AUTHOR => q[Olivier Elemento <olly@localdoma>]
 # BASEEXT => q[Hypergeom]
 # BOOTDEP => q[]
 # BUILD_REQUIRES => {  }
 # C => [q[Hypergeom.c]]
-# CC => q[/usr/bin/clang]
-# CCCDLFLAGS => q[ ]
-# CCDLFLAGS => q[ ]
-# CCFLAGS => q[-pipe -O2 -fno-common -DPERL_DARWIN -I/opt/local/include -no-cpp-precomp -fno-strict-aliasing -fstack-protector -I/opt/local/include]
-# CFLAGS => q[ CCFLAGS = -pipe -O2 -fno-common -DPERL_DARWIN -I/opt/local/include -no-cpp-precomp -fno-strict-aliasing -fstack-protector -I/opt/local/include OPTIMIZE = -O3 PERLTYPE =  MPOLLUTE =  ]
+# CC => q[gcc]
+# CCCDLFLAGS => q[-fPIC]
+# CCDLFLAGS => q[-Wl,-E -Wl,-rpath,/usr/lib64/perl5/CORE]
+# CCFLAGS => q[-D_REENTRANT -D_GNU_SOURCE -fno-strict-aliasing -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64]
+# CFLAGS => q[ CCFLAGS = -D_REENTRANT -D_GNU_SOURCE -fno-strict-aliasing -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 OPTIMIZE = -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic PERLTYPE =  MPOLLUTE =  ]
 # CHILDREN => { PACK002=>PACK002=HASH(...) }
 # CHMOD => q[chmod]
 # CI => q[ci -u]
 # COMPRESS => q[gzip --best]
 # CONFIG => [q[ar], q[cc], q[cccdlflags], q[ccdlflags], q[dlext], q[dlsrc], q[exe_ext], q[full_ar], q[ld], q[lddlflags], q[ldflags], q[libc], q[lib_ext], q[obj_ext], q[osname], q[osvers], q[ranlib], q[sitelibexp], q[sitearchexp], q[so], q[vendorarchexp], q[vendorlibexp]]
-# CONFIGURE_REQUIRES => {  }
 # CONST_CCCMD => q[CCCMD = $(CC) -c $(PASTHRU_INC) $(INC) \ 	$(CCFLAGS) $(OPTIMIZE) \ 	$(PERLTYPE) $(MPOLLUTE) $(DEFINE_VERSION) \ 	$(XS_DEFINE_VERSION)]
 # CP => q[cp]
 # DEFINE => q[]
@@ -1104,7 +1028,7 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 # DIST_CP => q[best]
 # DIST_DEFAULT => q[tardist]
 # DLBASE => q[$(BASEEXT)]
-# DLEXT => q[bundle]
+# DLEXT => q[so]
 # DLSRC => q[dl_dlopen.xs]
 # DOC_INSTALL => q[$(ABSPERLRUN) -MExtUtils::Command::MM -e 'perllocal_install' --]
 # ECHO => q[echo]
@@ -1116,32 +1040,32 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 # FIRST_MAKEFILE => q[Makefile]
 # FIXIN => q[$(ABSPERLRUN) -MExtUtils::MY -e 'MY->fixin(shift)' --]
 # FULLEXT => q[Hypergeom]
-# FULLPERL => q[/opt/local/bin/perl]
+# FULLPERL => q[/usr/bin/perl]
 # FULLPERLRUN => q[$(FULLPERL)]
 # FULLPERLRUNINST => q[$(FULLPERLRUN) "-I$(INST_ARCHLIB)" "-I$(INST_LIB)"]
 # FULL_AR => q[/usr/bin/ar]
 # H => [q[ppport.h]]
 # HAS_LINK_CODE => q[1]
 # INC => q[-I.]
-# INSTALLARCHLIB => q[$(PERLPREFIX)/lib/perl5/5.12.4/darwin-thread-multi-2level]
+# INSTALLARCHLIB => q[$(PERLPREFIX)/lib64/perl5]
 # INSTALLBIN => q[$(PERLPREFIX)/bin]
 # INSTALLDIRS => q[site]
-# INSTALLMAN1DIR => q[$(PERLPREFIX)/share/man/man1p]
-# INSTALLMAN3DIR => q[$(PERLPREFIX)/share/man/man3p]
-# INSTALLPRIVLIB => q[$(PERLPREFIX)/lib/perl5/5.12.4]
+# INSTALLMAN1DIR => q[$(PERLPREFIX)/share/man/man1]
+# INSTALLMAN3DIR => q[$(PERLPREFIX)/share/man/man3]
+# INSTALLPRIVLIB => q[$(PERLPREFIX)/share/perl5]
 # INSTALLSCRIPT => q[$(PERLPREFIX)/bin]
-# INSTALLSITEARCH => q[$(SITEPREFIX)/lib/perl5/site_perl/5.12.4/darwin-thread-multi-2level]
-# INSTALLSITEBIN => q[$(SITEPREFIX)/libexec/perl5.12/sitebin]
-# INSTALLSITELIB => q[$(SITEPREFIX)/lib/perl5/site_perl/5.12.4]
-# INSTALLSITEMAN1DIR => q[$(SITEPREFIX)/share/perl5.12/siteman/man1]
-# INSTALLSITEMAN3DIR => q[$(SITEPREFIX)/share/perl5.12/siteman/man3]
-# INSTALLSITESCRIPT => q[$(SITEPREFIX)/libexec/perl5.12/sitebin]
-# INSTALLVENDORARCH => q[$(VENDORPREFIX)/lib/perl5/vendor_perl/5.12.4/darwin-thread-multi-2level]
-# INSTALLVENDORBIN => q[$(VENDORPREFIX)/libexec/perl5.12]
-# INSTALLVENDORLIB => q[$(VENDORPREFIX)/lib/perl5/vendor_perl/5.12.4]
-# INSTALLVENDORMAN1DIR => q[$(VENDORPREFIX)/share/perl5.12/man/man1]
-# INSTALLVENDORMAN3DIR => q[$(VENDORPREFIX)/share/perl5.12/man/man3]
-# INSTALLVENDORSCRIPT => q[$(VENDORPREFIX)/libexec/perl5.12]
+# INSTALLSITEARCH => q[$(SITEPREFIX)/lib64/perl5]
+# INSTALLSITEBIN => q[$(SITEPREFIX)/bin]
+# INSTALLSITELIB => q[$(SITEPREFIX)/share/perl5]
+# INSTALLSITEMAN1DIR => q[$(SITEPREFIX)/share/man/man1]
+# INSTALLSITEMAN3DIR => q[$(SITEPREFIX)/share/man/man3]
+# INSTALLSITESCRIPT => q[$(SITEPREFIX)/bin]
+# INSTALLVENDORARCH => q[$(VENDORPREFIX)/lib64/perl5/vendor_perl]
+# INSTALLVENDORBIN => q[$(VENDORPREFIX)/bin]
+# INSTALLVENDORLIB => q[$(VENDORPREFIX)/share/perl5/vendor_perl]
+# INSTALLVENDORMAN1DIR => q[$(VENDORPREFIX)/share/man/man1]
+# INSTALLVENDORMAN3DIR => q[$(VENDORPREFIX)/share/man/man3]
+# INSTALLVENDORSCRIPT => q[$(VENDORPREFIX)/bin]
 # INST_ARCHAUTODIR => q[$(INST_ARCHLIB)/auto/$(FULLEXT)]
 # INST_ARCHLIB => q[blib/arch]
 # INST_ARCHLIBDIR => q[$(INST_ARCHLIB)]
@@ -1155,9 +1079,9 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 # INST_MAN3DIR => q[blib/man3]
 # INST_SCRIPT => q[blib/script]
 # INST_STATIC => q[$(INST_ARCHAUTODIR)/$(BASEEXT)$(LIB_EXT)]
-# LD => q[env MACOSX_DEPLOYMENT_TARGET=10.3 /usr/bin/clang]
-# LDDLFLAGS => q[-L/opt/local/lib  -bundle -undefined dynamic_lookup -fstack-protector]
-# LDFLAGS => q[-L/opt/local/lib  -fstack-protector]
+# LD => q[gcc]
+# LDDLFLAGS => q[-shared -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic]
+# LDFLAGS => q[ -fstack-protector]
 # LDFROM => q[$(OBJECT)]
 # LD_RUN_PATH => q[]
 # LIBC => q[]
@@ -1170,17 +1094,17 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 # MAKE => q[make]
 # MAKEFILE => q[Makefile]
 # MAKEFILE_OLD => q[Makefile.old]
-# MAKEMAKER => q[/opt/local/lib/perl5/5.12.4/ExtUtils/MakeMaker.pm]
+# MAKEMAKER => q[/usr/share/perl5/ExtUtils/MakeMaker.pm]
 # MAKE_APERL_FILE => q[Makefile.aperl]
-# MAN1EXT => q[1pm]
+# MAN1EXT => q[1]
 # MAN1PODS => {  }
 # MAN3EXT => q[3pm]
 # MAN3PODS => { Hypergeom.pm=>q[$(INST_MAN3DIR)/Hypergeom.$(MAN3EXT)] }
 # MAP_TARGET => q[perl]
 # MKPATH => q[$(ABSPERLRUN) -MExtUtils::Command -e 'mkpath' --]
-# MM_REVISION => q[66400]
-# MM_Unix_VERSION => q[6.64]
-# MM_VERSION => q[6.64]
+# MM_REVISION => q[65502]
+# MM_Unix_VERSION => q[6.55_02]
+# MM_VERSION => q[6.55_02]
 # MOD_INSTALL => q[$(ABSPERLRUN) -MExtUtils::Install -e 'install([ from_to => {@ARGV}, verbose => '\''$(VERBINST)'\'', uninstall_shadows => '\''$(UNINST)'\'', dir_mode => '\''$(PERM_DIR)'\'' ]);' --]
 # MV => q[mv]
 # MYEXTLIB => q[hypergeom/hypergeom$(LIB_EXT)]
@@ -1191,12 +1115,12 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 # NOOP => q[$(TRUE)]
 # OBJECT => q[$(BASEEXT)$(OBJ_EXT)]
 # OBJ_EXT => q[.o]
-# OPTIMIZE => q[-O3]
-# OSNAME => q[darwin]
-# OSVERS => q[11.3.0]
+# OPTIMIZE => q[-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic]
+# OSNAME => q[linux]
+# OSVERS => q[2.6.32-220.el6.x86_64]
 # O_FILES => [q[Hypergeom.o]]
 # PARENT_NAME => q[]
-# PERL => q[/opt/local/bin/perl]
+# PERL => q[/usr/bin/perl]
 # PERLMAINCC => q[$(CC)]
 # PERLPREFIX => q[$(PREFIX)]
 # PERLRUN => q[$(PERL)]
@@ -1204,39 +1128,38 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 # PERLTYPE => q[]
 # PERL_ARCHIVE => q[]
 # PERL_ARCHIVE_AFTER => q[]
-# PERL_ARCHLIB => q[/opt/local/lib/perl5/5.12.4/darwin-thread-multi-2level]
+# PERL_ARCHLIB => q[/usr/lib64/perl5]
 # PERL_CORE => q[0]
-# PERL_INC => q[/opt/local/lib/perl5/5.12.4/darwin-thread-multi-2level/CORE]
-# PERL_LIB => q[/opt/local/lib/perl5/5.12.4]
+# PERL_INC => q[/usr/lib64/perl5/CORE]
+# PERL_LIB => q[/usr/share/perl5]
 # PERL_MALLOC_DEF => q[-DPERL_EXTMALLOC_DEF -Dmalloc=Perl_malloc -Dfree=Perl_mfree -Drealloc=Perl_realloc -Dcalloc=Perl_calloc]
 # PERL_SRC => undef
 # PERM_DIR => q[755]
 # PERM_RW => q[644]
 # PERM_RWX => q[755]
 # PL_FILES => {  }
-# PM => { Hypergeom/hypergeom.c=>q[$(INST_LIB)/Hypergeom/hypergeom.c], Hypergeom/Makefile=>q[$(INST_LIB)/Hypergeom/Makefile], test.pm=>q[$(INST_LIB)/test.pm], Hypergeom/Makefile.old=>q[$(INST_LIB)/Hypergeom/Makefile.old], Hypergeom.pm=>q[$(INST_LIB)/Hypergeom.pm], Hypergeom/MYMETA.yml=>q[$(INST_LIB)/Hypergeom/MYMETA.yml], Hypergeom/hypergeom.h=>q[$(INST_LIB)/Hypergeom/hypergeom.h], Hypergeom/Makefile.PL=>q[$(INST_LIB)/Hypergeom/Makefile.PL], Hypergeom/MYMETA.json=>q[$(INST_LIB)/Hypergeom/MYMETA.json] }
-# PMLIBDIRS => [q[Hypergeom]]
+# PM => { test.pm=>q[$(INST_LIB)/test.pm], Hypergeom.pm=>q[$(INST_LIB)/Hypergeom.pm] }
+# PMLIBDIRS => []
 # PMLIBPARENTDIRS => [q[lib]]
 # POSTOP => q[$(NOECHO) $(NOOP)]
-# PREFIX => q[/Users/hani/Life/Projects/Applications/FIRE-1.1/SCRIPTS/../modules]
+# PREFIX => q[/netapp/home/hani/FIRE/SCRIPTS/../modules]
 # PREOP => q[$(NOECHO) $(NOOP)]
 # PREREQ_PM => {  }
-# RANLIB => q[ranlib]
+# RANLIB => q[:]
 # RCS_LABEL => q[rcs -Nv$(VERSION_SYM): -q]
 # RM_F => q[rm -f]
 # RM_RF => q[rm -rf]
 # SHAR => q[shar]
 # SHELL => q[/bin/sh]
-# SITEARCHEXP => q[/opt/local/lib/perl5/site_perl/5.12.4/darwin-thread-multi-2level]
-# SITELIBEXP => q[/opt/local/lib/perl5/site_perl/5.12.4]
+# SITEARCHEXP => q[/usr/local/lib64/perl5]
+# SITELIBEXP => q[/usr/local/share/perl5]
 # SITEPREFIX => q[$(PREFIX)]
 # SKIPHASH => {  }
-# SO => q[dylib]
+# SO => q[so]
 # SUFFIX => q[.gz]
-# TAR => q[COPY_EXTENDED_ATTRIBUTES_DISABLE=1 COPYFILE_DISABLE=1 tar]
+# TAR => q[tar]
 # TARFLAGS => q[cvf]
 # TEST_F => q[test -f]
-# TEST_REQUIRES => {  }
 # TOUCH => q[touch]
 # TO_UNIX => q[$(NOECHO) $(NOOP)]
 # TRUE => q[true]
@@ -1244,8 +1167,8 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 # UNINST => q[0]
 # UNINSTALL => q[$(ABSPERLRUN) -MExtUtils::Command::MM -e 'uninstall' --]
 # USEMAKEFILE => q[-f]
-# VENDORARCHEXP => q[/opt/local/lib/perl5/vendor_perl/5.12.4/darwin-thread-multi-2level]
-# VENDORLIBEXP => q[/opt/local/lib/perl5/vendor_perl/5.12.4]
+# VENDORARCHEXP => q[/usr/lib64/perl5/vendor_perl]
+# VENDORLIBEXP => q[/usr/share/perl5/vendor_perl]
 # VENDORPREFIX => q[$(PREFIX)]
 # VERBINST => q[0]
 # VERSION => q[0.01]
@@ -1260,7 +1183,7 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 # XS_VERSION_MACRO => q[XS_VERSION]
 # ZIP => q[zip]
 # ZIPFLAGS => q[-r]
-# _MAX_EXEC_LEN => q[262144]
+# _MAX_EXEC_LEN => q[4096]
 
 # --- MakeMaker postamble section:
 

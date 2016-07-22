@@ -52,7 +52,7 @@ my $add            = 1;
 my $add3           = undef;
 my $add5           = undef;
 my $rna            = 0;
-my $platform       = undef;
+my $platform       = "qb3";
 my $distonly       = 0;
 my $shuffle        = 10000;
 my $shuffle_mifind = -1;
@@ -617,9 +617,9 @@ species-specific data file from http://tavazoielab.princeton.edu/FIRE.\n"
 
 		$pbs->setWallTime($walltime);
 
-		if ( $platform eq 'tcluster' ) {
+		if ( $platform eq 'qb3' ) {
 			$pbs->addCmd("setenv FIREDIR $firedir");
-			$pbs->addCmd("setenv LD_LIBRARY_PATH=$ENV{FIREDIR}/modules/lib");
+			$pbs->addCmd("setenv LD_LIBRARY_PATH $ENV{FIREDIR}/modules/lib");
 		}
 		else {
 			$pbs->addCmd("export FIREDIR=$firedir");
@@ -700,10 +700,8 @@ species-specific data file from http://tavazoielab.princeton.edu/FIRE.\n"
 		}
 
 		# if no seeds, exit here
-		if ( $doskipdiscovery == 0 ) {
-			$pbs->addCmd(
-"CNTM=`perl $scriptdir/count_lines.pl $seedfile_dna`; if [ \$CNTM = 0 ]; then echo \"No DNA motifs. Exiting now.\"; exit; fi"
-			);
+		if ( $doskipdiscovery == 0 && $platform ne "qb3") {
+			$pbs->addCmd("CNTM=`perl $scriptdir/count_lines.pl $seedfile_dna`; if [ \$CNTM = 0 ]; then echo \"No DNA motifs. Exiting now.\"; exit; fi");
 		}
 
 		if ( $domioptimize == 1 ) {
@@ -1166,15 +1164,13 @@ species-specific data file from http://tavazoielab.princeton.edu/FIRE.\n"
 
 			$pbs->setWallTime($walltime);
 
-			if ( $platform eq 'tcluster' ) {
+			if ( $platform eq 'qb3' ) {
 				$pbs->addCmd("setenv FIREDIR $firedir");
-				$pbs->addCmd(
-					"setenv LD_LIBRARY_PATH=$ENV{FIREDIR}/modules/lib");
+				$pbs->addCmd("setenv LD_LIBRARY_PATH $ENV{FIREDIR}/modules/lib");
 			}
 			else {
 				$pbs->addCmd("export FIREDIR=$firedir");
-				$pbs->addCmd(
-					"export LD_LIBRARY_PATH=$ENV{FIREDIR}/modules/lib");
+				$pbs->addCmd("export LD_LIBRARY_PATH=$ENV{FIREDIR}/modules/lib");
 			}
 
 			$pbs->addCmd("cd $pwd");
@@ -1212,10 +1208,9 @@ species-specific data file from http://tavazoielab.princeton.edu/FIRE.\n"
 
 			$pbs->setWallTime($walltime);
 
-			if ( $platform eq 'tcluster' ) {
+			if ( $platform eq 'qb3' ) {
 				$pbs->addCmd("setenv FIREDIR $firedir");
-				$pbs->addCmd(
-					"setenv LD_LIBRARY_PATH=$ENV{FIREDIR}/modules/lib");
+				$pbs->addCmd("setenv LD_LIBRARY_PATH $ENV{FIREDIR}/modules/lib");
 			}
 			else {
 				$pbs->addCmd("export FIREDIR=$firedir");
@@ -1333,9 +1328,9 @@ species-specific data file from http://tavazoielab.princeton.edu/FIRE.\n"
 
 		$pbs->addCmd("cd $pwd");
 
-		if ( $platform eq 'tcluster' ) {
+		if ( $platform eq 'qb3' ) {
 			$pbs->addCmd("setenv FIREDIR $firedir");
-			$pbs->addCmd("setenv LD_LIBRARY_PATH$ENV{FIREDIR}/modules/lib");
+			$pbs->addCmd("setenv LD_LIBRARY_PATH $ENV{FIREDIR}/modules/lib");
 		}
 		else {
 			$pbs->addCmd("export FIREDIR=$firedir");
@@ -1410,9 +1405,8 @@ species-specific data file from http://tavazoielab.princeton.edu/FIRE.\n"
 		}
 
 		# if no seeds, exit here
-		if ( $doskipdiscovery == 0 ) {
-			$pbs->addCmd(
-"CNTM=`perl $scriptdir/count_lines.pl $seedfile_rna`; if [ \$CNTM = 0 ]; then echo \"No DNA motifs. Exiting now.\"; exit; fi"
+		if ( $doskipdiscovery == 0 && $platform ne "qb3") {
+			$pbs->addCmd("CNTM=`perl $scriptdir/count_lines.pl $seedfile_rna`; if [ \$CNTM = 0 ]; then echo \"No DNA motifs. Exiting now.\"; exit; fi"
 			);
 		}
 
@@ -1880,15 +1874,13 @@ species-specific data file from http://tavazoielab.princeton.edu/FIRE.\n"
 
 			$pbs->setWallTime($walltime);
 
-			if ( $platform eq 'tcluster' ) {
+			if ( $platform eq 'qb3' ) {
 				$pbs->addCmd("setenv FIREDIR $firedir");
-				$pbs->addCmd(
-					"setenv LD_LIBRARY_PATH=$ENV{FIREDIR}/modules/lib");
+				$pbs->addCmd("setenv LD_LIBRARY_PATH $ENV{FIREDIR}/modules/lib");
 			}
 			else {
 				$pbs->addCmd("export FIREDIR=$firedir");
-				$pbs->addCmd(
-					"export LD_LIBRARY_PATH=$ENV{FIREDIR}/modules/lib");
+				$pbs->addCmd("export LD_LIBRARY_PATH=$ENV{FIREDIR}/modules/lib");
 			}
 
 			$pbs->addCmd("cd $pwd");
@@ -1926,15 +1918,13 @@ species-specific data file from http://tavazoielab.princeton.edu/FIRE.\n"
 
 			$pbs->setWallTime($walltime);
 
-			if ( $platform eq 'tcluster' ) {
+			if ( $platform eq 'qb3' ) {
 				$pbs->addCmd("setenv FIREDIR $firedir");
-				$pbs->addCmd(
-					"setenv LD_LIBRARY_PATH=$ENV{FIREDIR}/modules/lib");
+				$pbs->addCmd("setenv LD_LIBRARY_PATH $ENV{FIREDIR}/modules/lib");
 			}
 			else {
 				$pbs->addCmd("export FIREDIR=$firedir");
-				$pbs->addCmd(
-					"export LD_LIBRARY_PATH=$ENV{FIREDIR}/modules/lib");
+				$pbs->addCmd("export LD_LIBRARY_PATH=$ENV{FIREDIR}/modules/lib");
 			}
 
 			$pbs->addCmd("cd $pwd");
@@ -2031,9 +2021,9 @@ species-specific data file from http://tavazoielab.princeton.edu/FIRE.\n"
 		$pbs->addCmd("date");
 		$pbs->addCmd("cd $pwd");
 
-		if ( $platform eq 'tcluster' ) {
+		if ( $platform eq 'qb3' ) {
 			$pbs->addCmd("setenv FIREDIR $firedir");
-			$pbs->addCmd("setenv LD_LIBRARY_PATH$ENV{FIREDIR}/modules/lib");
+			$pbs->addCmd("setenv LD_LIBRARY_PATH $ENV{FIREDIR}/modules/lib");
 		}
 		else {
 			$pbs->addCmd("export FIREDIR=$firedir");
@@ -2045,9 +2035,8 @@ species-specific data file from http://tavazoielab.princeton.edu/FIRE.\n"
 #}
 
 		# if no seeds, exit here
-		if ( $doskipdiscovery == 0 ) {
-			$pbs->addCmd(
-"CNTM=`perl $scriptdir/count_lines.pl $seedfile_dna $seedfile_rna`; if [ \$CNTM = 0 ]; then echo \"No DNA or RNA motifs. Exiting now.\"; exit; fi"
+		if ( $doskipdiscovery == 0 && $platform ne "qb3") {
+			$pbs->addCmd("CNTM=`perl $scriptdir/count_lines.pl $seedfile_dna $seedfile_rna`; if [ \$CNTM = 0 ]; then echo \"No DNA or RNA motifs. Exiting now.\"; exit; fi"
 			);
 		}
 
@@ -2396,15 +2385,13 @@ species-specific data file from http://tavazoielab.princeton.edu/FIRE.\n"
 
 			$pbs->setWallTime($walltime);
 
-			if ( $platform eq 'tcluster' ) {
+			if ( $platform eq 'qb3' ) {
 				$pbs->addCmd("setenv FIREDIR $firedir");
-				$pbs->addCmd(
-					"setenv LD_LIBRARY_PATH=$ENV{FIREDIR}/modules/lib");
+				$pbs->addCmd("setenv LD_LIBRARY_PATH $ENV{FIREDIR}/modules/lib");
 			}
 			else {
 				$pbs->addCmd("export FIREDIR=$firedir");
-				$pbs->addCmd(
-					"export LD_LIBRARY_PATH=$ENV{FIREDIR}/modules/lib");
+				$pbs->addCmd("export LD_LIBRARY_PATH=$ENV{FIREDIR}/modules/lib");
 			}
 
 			$pbs->addCmd("cd $pwd");
@@ -2442,15 +2429,13 @@ species-specific data file from http://tavazoielab.princeton.edu/FIRE.\n"
 
 			$pbs->setWallTime($walltime);
 
-			if ( $platform eq 'tcluster' ) {
+			if ( $platform eq 'qb3' ) {
 				$pbs->addCmd("setenv FIREDIR $firedir");
-				$pbs->addCmd(
-					"setenv LD_LIBRARY_PATH=$ENV{FIREDIR}/modules/lib");
+				$pbs->addCmd("setenv LD_LIBRARY_PATH $ENV{FIREDIR}/modules/lib");
 			}
 			else {
 				$pbs->addCmd("export FIREDIR=$firedir");
-				$pbs->addCmd(
-					"export LD_LIBRARY_PATH=$ENV{FIREDIR}/modules/lib");
+				$pbs->addCmd("export LD_LIBRARY_PATH=$ENV{FIREDIR}/modules/lib");
 			}
 
 			$pbs->addCmd("cd $pwd");

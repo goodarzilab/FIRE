@@ -1,6 +1,7 @@
 package GroupEnrichment;
 
-use lib qw(/Users/hani/Life/Projects/Applications/FIRE-1.1/SCRIPTS/../modules/lib/perl5/site_perl/5.10.0/darwin-thread-multi-2level/Users/hani/Life/Projects/Applications/FIRE-1.1/SCRIPTS/../modules/lib/perl5/site_perl/5.12.4/darwin-thread-multi-2level/Hypergeom.pm
+use lib qw(/netapp/home/hani/FIRE/SCRIPTS/../modules/lib/perl5/site_perl/5.10.0/darwin-thread-multi-2level/netapp/home/hani/FIRE/SCRIPTS/../modules/lib/perl5/site_perl/5.12.4/darwin-thread-multi-2level/Hypergeom.pm
+/netapp/home/hani/FIRE/SCRIPTS/../modules/lib64/perl5/Hypergeom.pm
 );
 
 

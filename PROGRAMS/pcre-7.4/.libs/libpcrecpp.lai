@@ -5,16 +5,16 @@
 # It is necessary for linking the library.
 
 # The name that we can dlopen(3).
-dlname='libpcrecpp.0.dylib'
+dlname='libpcrecpp.so.0'
 
 # Names of this library.
-library_names='libpcrecpp.0.0.0.dylib libpcrecpp.0.dylib libpcrecpp.dylib'
+library_names='libpcrecpp.so.0.0.0 libpcrecpp.so.0 libpcrecpp.so'
 
 # The name of the static archive.
 old_library='libpcrecpp.a'
 
 # Libraries that this one depends upon.
-dependency_libs=' /Users/hani/Life/Projects/Applications/FIRE-1.1/PROGRAMS/pcre-7.4/../../modules/lib/libpcre.la'
+dependency_libs=' /netapp/home/hani/FIRE/PROGRAMS/pcre-7.4/../../modules/lib/libpcre.la'
 
 # Version information for libpcrecpp.
 current=0
@@ -32,4 +32,4 @@ dlopen=''
 dlpreopen=''
 
 # Directory that this library needs to be installed in:
-libdir='/Users/hani/Life/Projects/Applications/FIRE-1.1/PROGRAMS/pcre-7.4/../../modules/lib'
+libdir='/netapp/home/hani/FIRE/PROGRAMS/pcre-7.4/../../modules/lib'

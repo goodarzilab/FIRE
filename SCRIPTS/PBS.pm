@@ -22,11 +22,8 @@ PBS
 
    # now just add commands (that you would normally exexute manually)
    $pbs->addCmd("cd $pwd");
-   $pbs->addCmd("export DYLD_LIBRARY_PATH=/Genomics/fafner/grid/users/elemento/usr/lib");
+   $pbs->addCmd("export DYLD_LIBRARY_PATH=/Genomics/c2b2/grid/users/elemento/usr/lib");
    $pbs->addCmd("echo \"DNA, remove duplicates, create $expfile_nodups_dna\"");
-
-   # other cmd
-   $pbs->addPrint("txt ...");
 
    # submit the script
    $pbs->submit; 
@@ -47,15 +44,14 @@ sub new {
     my ($self) = {};
 
     $self->{SCRIPT_NAME} = 'script.pbs';
-    $self->{WALLTIME}    = '24:00:00';
-    $self->{MEMORY}      = '2000Mb';
+    $self->{WALLTIME}    = '168:00:00';
+    $self->{MEMORY}      = '4000M' ;
     $self->{QUEUE}       = undef;
     $self->{ERRORS}      = undef;
     $self->{DEPJOBS}     = [];
     $self->{CMDS}        = [];
-    $self->{PLATFORM}    = 'fafner';
+    $self->{PLATFORM}    = 'qb3';
     $self->{USEALLNODE}  = 0;
-    $self->{GB} = undef;	
     bless $self;
     return $self;
 
@@ -103,11 +99,6 @@ sub setMemory {
   $self->{MEMORY}   = $f;
 }
 
-sub setGB {
-  my ($self, $f) = @_;
-  $self->{GB} = $f;
-}
-
 sub setErrorFile {
   my ($self, $f) = @_;
   $self->{ERRORS}   = $f;
@@ -134,43 +125,30 @@ sub print {
 
 sub addCmd {
   my ($self, $c) = @_;
-  push @{  $self->{CMDS} }, $c;
-}
 
-sub addPrint {
-  my ($self, $c) = @_;
-  $self->addCmd("echo \"$c\"");
+  push @{  $self->{CMDS} }, $c;
+
+  
 }
 
 sub _createText {
   my ($self) = @_;
 
   my $txt = "";
-  
-  if (($self->{PLATFORM} eq 'tcluster') || ($self->{PLATFORM} eq 'fafner')) {
-	  if (defined($self->{MEMORY})) {
-	    $txt .= "#PBS -l mem=$self->{MEMORY}\n";
-	  }
-	  if (defined($self->{WALLTIME})) {
-	    $txt .= "#PBS -l walltime=$self->{WALLTIME}\n";
-	  }  	
-  } else {
-	  if (defined($self->{MEMORY})) {
-	    $txt .= "#PBS -l mem=$self->{MEMORY}\n";
-	  }
-	  if (defined($self->{WALLTIME})) {
-	    $txt .= "#PBS -l walltime=$self->{WALLTIME}\n";
-	  }  	
-  }
+  $txt .= "#\$ -l mem_free=$self->{MEMORY}\n";
+  $txt .= "#\$ -l h_rt=$self->{WALLTIME}\n";
 
-  if (defined($self->{SCRIPT_NAME})) {
-#   $txt .= "#PBS -e $self->{SCRIPT_NAME}.e\n";
-#   $txt .= "#PBS -o $self->{SCRIPT_NAME}.o\n";
-  }
-  
+
+  $txt .= "#\$ -e $self->{SCRIPT_NAME}.e\n";
+  $txt .= "#\$ -o $self->{SCRIPT_NAME}.o\n";
+
+  $txt .= "#\$ -cwd\n";
+
+  $txt .= "#\$ -V\n";
+
   #if (defined($self->{ERRORS})) {
   #}
-  
+ 
   foreach my $c (@{ $self->{CMDS} }) {
     $txt .= "$c\n";
   }
@@ -204,17 +182,13 @@ sub submit {
 
   $self->_writeScript();
 
-  #if ($self->{PLATFORM} eq 'fafner') {
+  #if ($self->{PLATFORM} eq 'c2b2') {
   system("chmod +x $self->{SCRIPT_NAME}");    
   #}
 
   my $todo = "qsub " ;
-  if (($self->{PLATFORM} eq 'fafner') || ($self->{PLATFORM} eq 'tcluster'))  {
+  if (($self->{PLATFORM} eq 'c2b2') || ($self->{PLATFORM} eq 'qb3'))  {
     $todo .= " -cwd ";
-
-    if(defined($self->{GB})){
-      $todo .= " -l gb=$self->{GB} ";
-    }
   }
 
   if ($self->{USEALLNODE} == 1) {
@@ -222,31 +196,17 @@ sub submit {
   }
   
   if (defined($self->{QUEUE})) {
-   if ($self->{PLATFORM} eq 'fafner') {
-      $todo .= " -l $self->{QUEUE} ";
-    } else {
-      $todo .= " -q $self->{QUEUE} ";
-    }  
+    $todo .= " -q $self->{QUEUE} ";
   }
   
   # doc at  http://beige.ucs.indiana.edu/I590/node45.html
   #         http://www.arsc.edu/support/news/HPCnews/HPCnews320.shtml
   if (@{$self->{DEPJOBS}} > 0) {
-    
-    if (($self->{PLATFORM} eq 'fafner') || ($self->{PLATFORM} eq 'tcluster'))  {
-      $todo .= " -hold_jid " . join(",", @{$self->{DEPJOBS}});      
+    if ($self->{PLATFORM} eq 'qb3') {
+	$todo .= " -hold_jid " . join(",", @{$self->{DEPJOBS}}) ;
     } else {
-      $todo .= " -W depend=afterany:" . join(":", @{$self->{DEPJOBS}});
+	$todo .= " -W depend=afterany:" . join(":", @{$self->{DEPJOBS}});
     }
-
-    # not sure which code is best 
-    #if ($self->{PLATFORM} eq 'tcluster') {
-    #  $todo .= " -ac ";
-    #} else {
-    #  $todo .= " -W ";
-    #}
-    #$todo .= " depend=afterany:" . join(":", @{$self->{DEPJOBS}});
-
   }
   
   $todo .= " $self->{SCRIPT_NAME}";
@@ -256,8 +216,7 @@ sub submit {
   my $out = `$todo`;
   $out =~ s/[\r\n]//g;
 
-  #if ($self->{PLATFORM} eq 'tcluster') {
-  if (($self->{PLATFORM} eq 'tcluster') || ($self->{PLATFORM} eq 'fafner')) {
+  if ($self->{PLATFORM} eq 'qb3' || $self->{PLATFORM} eq 'c2b2') {
     my ($realout) = $out =~ /Your\ job\ (\d+?)\ /;  
     $out = $realout;
   }
@@ -272,13 +231,6 @@ sub execute {
   $self->_writeScript();
 
   system("sh $self->{SCRIPT_NAME}");
-}
-
-sub outputscript {
-  my ($self) = @_;
-   
-  $self->_writeScript();
-
 }
 
 1;

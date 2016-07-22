@@ -5,16 +5,16 @@
 # It is necessary for linking the library.
 
 # The name that we can dlopen(3).
-dlname='libpcreposix.0.dylib'
+dlname='libpcreposix.so.0'
 
 # Names of this library.
-library_names='libpcreposix.0.0.0.dylib libpcreposix.0.dylib libpcreposix.dylib'
+library_names='libpcreposix.so.0.0.0 libpcreposix.so.0 libpcreposix.so'
 
 # The name of the static archive.
 old_library='libpcreposix.a'
 
 # Libraries that this one depends upon.
-dependency_libs=' /Users/hani/Life/Projects/Applications/FIRE-1.1/PROGRAMS/pcre-7.4/libpcre.la'
+dependency_libs=' /netapp/home/hani/FIRE/PROGRAMS/pcre-7.4/libpcre.la'
 
 # Version information for libpcreposix.
 current=0
@@ -32,5 +32,5 @@ dlopen=''
 dlpreopen=''
 
 # Directory that this library needs to be installed in:
-libdir='/Users/hani/Life/Projects/Applications/FIRE-1.1/PROGRAMS/pcre-7.4/../../modules/lib'
-relink_command=""
+libdir='/netapp/home/hani/FIRE/PROGRAMS/pcre-7.4/../../modules/lib'
+relink_command="(cd /netapp/home/hani/FIRE/PROGRAMS/pcre-7.4; /bin/sh ./libtool  --tag=CC --mode=relink gcc -O2 -version-info 0:0:0 -o libpcreposix.la -rpath /netapp/home/hani/FIRE/PROGRAMS/pcre-7.4/../../modules/lib pcreposix.lo libpcre.la @inst_prefix_dir@) "

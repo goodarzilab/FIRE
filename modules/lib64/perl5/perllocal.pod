@@ -1,0 +1,22 @@
+=head2 Thu Jul 21 14:06:35 2016: C<Module> L<Hypergeom|Hypergeom>
+
+=over 4
+
+=item *
+
+C<installed into: /netapp/home/hani/FIRE/SCRIPTS/../modules/share/perl5>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.01>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+

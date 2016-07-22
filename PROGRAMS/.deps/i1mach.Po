@@ -1,37 +1,56 @@
-i1mach.o: i1mach.c /usr/include/math.h /usr/include/sys/cdefs.h \
- /usr/include/sys/_symbol_aliasing.h \
- /usr/include/sys/_posix_availability.h /usr/include/Availability.h \
- /usr/include/AvailabilityInternal.h \
- /opt/local/lib/gcc47/gcc/x86_64-apple-darwin11/4.7.3/include-fixed/limits.h \
- /opt/local/lib/gcc47/gcc/x86_64-apple-darwin11/4.7.3/include-fixed/syslimits.h \
- /usr/include/limits.h /usr/include/machine/limits.h \
- /usr/include/i386/limits.h /usr/include/i386/_limits.h \
- /usr/include/sys/syslimits.h rcode.h
+i1mach.o: i1mach.c /usr/include/math.h /usr/include/features.h \
+ /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h \
+ /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h \
+ /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h \
+ /usr/include/bits/huge_vall.h /usr/include/bits/inf.h \
+ /usr/include/bits/nan.h /usr/include/bits/mathdef.h \
+ /usr/include/bits/mathcalls.h /usr/include/bits/mathinline.h \
+ /usr/lib/gcc/x86_64-redhat-linux/4.4.7/include/limits.h \
+ /usr/lib/gcc/x86_64-redhat-linux/4.4.7/include/syslimits.h \
+ /usr/include/limits.h /usr/include/bits/posix1_lim.h \
+ /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/bits/posix2_lim.h rcode.h
 
 /usr/include/math.h:
 
+/usr/include/features.h:
+
 /usr/include/sys/cdefs.h:
 
-/usr/include/sys/_symbol_aliasing.h:
+/usr/include/bits/wordsize.h:
 
-/usr/include/sys/_posix_availability.h:
+/usr/include/gnu/stubs.h:
 
-/usr/include/Availability.h:
+/usr/include/gnu/stubs-64.h:
 
-/usr/include/AvailabilityInternal.h:
+/usr/include/bits/huge_val.h:
 
-/opt/local/lib/gcc47/gcc/x86_64-apple-darwin11/4.7.3/include-fixed/limits.h:
+/usr/include/bits/huge_valf.h:
 
-/opt/local/lib/gcc47/gcc/x86_64-apple-darwin11/4.7.3/include-fixed/syslimits.h:
+/usr/include/bits/huge_vall.h:
+
+/usr/include/bits/inf.h:
+
+/usr/include/bits/nan.h:
+
+/usr/include/bits/mathdef.h:
+
+/usr/include/bits/mathcalls.h:
+
+/usr/include/bits/mathinline.h:
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/include/limits.h:
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/include/syslimits.h:
 
 /usr/include/limits.h:
 
-/usr/include/machine/limits.h:
+/usr/include/bits/posix1_lim.h:
 
-/usr/include/i386/limits.h:
+/usr/include/bits/local_lim.h:
 
-/usr/include/i386/_limits.h:
+/usr/include/linux/limits.h:
 
-/usr/include/sys/syslimits.h:
+/usr/include/bits/posix2_lim.h:
 
 rcode.h:

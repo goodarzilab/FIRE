@@ -5,10 +5,10 @@
 # It is necessary for linking the library.
 
 # The name that we can dlopen(3).
-dlname='libpcre.0.dylib'
+dlname='libpcre.so.0'
 
 # Names of this library.
-library_names='libpcre.0.0.1.dylib libpcre.0.dylib libpcre.dylib'
+library_names='libpcre.so.0.0.1 libpcre.so.0 libpcre.so'
 
 # The name of the static archive.
 old_library='libpcre.a'
@@ -32,4 +32,4 @@ dlopen=''
 dlpreopen=''
 
 # Directory that this library needs to be installed in:
-libdir='/Users/hani/Life/Projects/Applications/FIRE-1.1/PROGRAMS/pcre-7.4/../../modules/lib'
+libdir='/netapp/home/hani/FIRE/PROGRAMS/pcre-7.4/../../modules/lib'
